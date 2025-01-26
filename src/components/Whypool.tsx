@@ -1,4 +1,3 @@
-import React from "react";
 import Freqquestions from "./Freqquestions";
 import FeaturesGrid from "./Featuresgrid";
 

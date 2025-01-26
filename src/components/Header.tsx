@@ -1,30 +1,39 @@
 import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const nav = useNavigate();
-  return (
-    <div
-      onClick={() => {
-        nav("/");
-      }}
-      className="bg-white  py-6 w-full"
-      style={{ boxShadow: "0px 4px 25px 0px rgba(0, 0, 0, 0.15)" }}
-    >
-      <div className="flex justify-between flex-grow px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-        <img src="/logo.svg" alt="logo" />
+  const navigate = useNavigate();
 
-        <div className="flex justify-between">
-          <div className="text-[#4B52D9] text-base font-medium leading-6 flex gap-10 items-center">
-            <Link to="whyPool">Why Pool?</Link>
-            <Link to="about">About Us</Link>
-            <p>FAQs</p>
-            <button className="bg-blue-600 text-white py-3 px-5 rounded-full hover:bg-blue-700 cursor-pointer">
-              Start a Pool
-            </button>
-          </div>
+  return (
+    <header className="bg-white py-4 shadow-md w-full">
+      <div className="flex justify-between items-center px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        {/* Logo */}
+        <div className="cursor-pointer" onClick={() => navigate("/")}>
+          <img src="/logo.svg" alt="logo" className="h-8" />
         </div>
+
+        {/* Navigation Links */}
+        <nav className="flex items-center space-x-8 text-base font-medium text-gray-700">
+          <div
+            className="cursor-pointer  hover:text-blue-800"
+            onClick={() => navigate("/whyPool")}
+          >
+            Why Pool?
+          </div>
+          <Link to="/about" className="hover:text-blue-800 transition-colors">
+            About Us
+          </Link>
+          <p className="cursor-pointer hover:text-blue-800 transition-colors">
+            FAQs
+          </p>
+          <button
+            className="bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700 transition duration-300"
+            onClick={() => navigate("/startPool")}
+          >
+            Start a Pool
+          </button>
+        </nav>
       </div>
-    </div>
+    </header>
   );
 };
 

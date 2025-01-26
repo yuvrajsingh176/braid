@@ -1,12 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const nav = useNavigate();
   return (
-    <Link to="/">
-      <div
-        className="bg-white flex justify-around py-6"
-        style={{ boxShadow: "0px 4px 25px 0px rgba(0, 0, 0, 0.15)" }}
-      >
+    <div
+      onClick={() => {
+        nav("/");
+      }}
+      className="bg-white  py-6 w-full"
+      style={{ boxShadow: "0px 4px 25px 0px rgba(0, 0, 0, 0.15)" }}
+    >
+      <div className="flex justify-between flex-grow px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <img src="/logo.svg" alt="logo" />
 
         <div className="flex justify-between">
@@ -20,7 +24,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 
